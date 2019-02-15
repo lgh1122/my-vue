@@ -4,7 +4,7 @@
       <div class="iconfont backicon">&#xe624;</div>
     </div>
     <div class="header-input">
-      <span class="iconfont">&#xe632;</span>
+      <span class="iconfont input-icon">&#xe632;</span>
       输入城市/景点/游玩主题
     </div>
     <div class="header-right">
@@ -40,6 +40,8 @@ export default {
       margin-top: .12rem
       margin-left: .2rem
       color: #ccc
+      .input-icon
+        font-size: .3rem
     .header-right
       width: 1.24rem
       float: right
