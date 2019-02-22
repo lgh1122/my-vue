@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" v-if="showSwiper">
       <!-- slides -->
-      <swiper-slide v-for="item of SwiperList" :key="item.id">
+      <swiper-slide v-for="item of list" :key="item.id">
         <img class="swiper-img" :src="item.imgUrl">
       </swiper-slide>
 
@@ -17,28 +17,28 @@
 <script>
 export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data () {
     return {
       swiperOption: {
-        pagination: 'swiper-pagination',
-        loop: true
-      },
-      SwiperList: [
-        {
-          id: '0001',
-          imgUrl: 'http://img1.qunarzz.com/piao/fusion/1712/d0/0f5f1844045c0102.jpg_890x330_68cb5860.jpg'
-        }, {
-          id: '0002',
-          imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20192/3204f6960133ada839a24fc7781ab310.jpg_890x330_01abe7cc.jpg'
-        }
-      ]
+        pagination: '.swiper-pagination',
+        loop: true,
+        autoplay: 3000
+      }
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.list.length
     }
   }
 }
 </script>
 <style lang="stylus" scoped>
   .wrapper >>> .swiper-pagination-bullet-active
-    background #23231F
+    background: blue
   .wrapper
     overflow hidden
     width 100%
